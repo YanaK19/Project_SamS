@@ -51,6 +51,14 @@
         background-color: rgba(255, 78, 78, 0.6);
         border: 2px solid rgba(145, 18, 18, 0.6);
     }
+    
+    .content-window .info{
+        height: 80%;
+    }
+    
+    .content-window .result-salad-ingredients{
+        height: 90%;
+    }
 }
 
 @media (max-width: 810px){

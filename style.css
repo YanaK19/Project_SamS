@@ -232,6 +232,8 @@ ul{
 .right-fix{
     position: sticky;
     border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     top: 0;
     height: 19.7em;
     margin-top:17px;
@@ -251,13 +253,14 @@ ul{
     text-transform: uppercase;
 }
 
-.added{
+.right-fix .added{
     left: 5%;
     top: 70px;
     border: 2px solid rgba(86, 97, 44, 0.7);
     position: absolute;
     height: 55%;
     width: 90%;
+    overflow: auto;
 }
 
 .results{
@@ -385,39 +388,64 @@ ul{
     left: 0;
     bottom: 0;
     z-index:150;
-/*     display: none; */
     margin: 0 auto;
 
-    display:flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
+/*     display: none; */
 }
 
-.cook-window img{
-    width: 90%;
+.content-window{
+    display:flex;
+    justify-content: space-around;
+    height:80%;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 2px solid darkcyan;
+}
+
+.cook-window .close{
+    border-radius: 10px;
+    border: 2px solid  rgb(175, 31, 31);
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-size: 24px 24px;
+    background-image: url('images/close.png');
+    right: 1%;
+    top: 1%;
+/*     background-color: #fff; */
+}
+
+.cook-window .close:hover{
+    box-shadow: 0px 0px 10px 1px rgba(150, 30, 30, 0.4);
 }
 
 .cook-window .title{
     font-size: 1.5rem;;
     text-transform: uppercase;
+    color: rgb(175, 31, 31);
 }
 
-.cook-window .anim{
+.content-window .anim{
     border: 2px solid darkcyan;
-    width: 30%;
+    width: 25%;
 }
 
-.cook-window .info{
-    height:95%;
+.content-window .anim img{
+    width: 85%;
+    border: 2px solid darkcyan;
+}
+
+.content-window .info{
+    height: 95%;
     border: 2px solid darkcyan;
     width: 60%;
 }
 
-.cook-window .result-salad-ingredients{
+.content-window .result-salad-ingredients{
     margin-top: 10px;
-    height: 75%;
+    height: 95%;
     border: 2px solid darkcyan;
+    overflow: auto;
 }
 
 .filter{
@@ -428,6 +456,7 @@ ul{
     left: 0;
     bottom: 0;
     z-index:100;
+
 /*     display: none; */
 }
 
