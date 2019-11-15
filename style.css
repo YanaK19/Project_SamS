@@ -9,7 +9,6 @@ html{
 body{
     margin: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 3px solid royalblue;
 }
 
 .main{
@@ -39,6 +38,7 @@ body{
 }
 
 .header{
+    margin-top: 3%;
     height:10vh;
     width:90%;
     position:relative;
@@ -49,7 +49,7 @@ body{
 }
 
 .menu{
-    width:60%;
+    width: 30%;
 }
 
 .menu ul{
@@ -58,11 +58,11 @@ body{
     list-style: none;
 }
 
-.menu ul li{
+.menu li{
     border: 2px solid #fff;
     padding:10px;
     border-radius: 100px;
-    width:60px;
+    width: 60px;
     text-align: center;
 }
 
@@ -96,7 +96,7 @@ body{
     background-color: #fff;
     display: inline-block;
     vertical-align: middle;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .main-text p::after{
@@ -126,15 +126,11 @@ body{
     padding: 5px;
 /*     box-shadow: 0px 0px 20px 3px rgba(204, 204, 223, 0.4); */
 }
-/* 
-.table *{
-
-    border: 1px solid red;
-} */
 
 .table{
+/*     background-color: rgb(185, 144, 144); */
     margin-top: 0;
-    height: 100vh;
+    height: 190vh;
     min-height: 600px;
 }
 
@@ -169,10 +165,11 @@ margin: 0;
     margin-bottom: 60px;
 }
 
-/* .wrap{
-    width: 100%;
-    height: 100%;
-} */
+.wrap{
+    position:relative;
+    height: 70vh;
+  /*   background-color: rgb(97, 88, 116); */
+}
 
 .left{
     display: flex;
@@ -181,15 +178,16 @@ margin: 0;
     width: 68%;
     float:left;
     padding-top: 5px;
-   /*  border:2px solid black; */
+ /*    border: 2px solid black; */
+    flex-wrap: wrap;
 }
 
 .ingredients-tag{
+    margin: 10px;
     text-align: center;
     color:rgb(61, 11, 11);
     font-size: 0.9rem;
-    width: 300px;
-
+    width: 250px;
     display: flex;
     flex-direction: column;
 
@@ -199,6 +197,7 @@ margin: 0;
 }
 
 .ingredients-tag:hover{
+    box-sizing: border-box;
     border: 2px solid rgba(159, 179, 82, 0.7);
 }
 
@@ -230,18 +229,52 @@ ul{
     border: 2px solid rgba(159, 179, 82, 0.7);
 }
 
-/* .right-fix{
+.right-fix{
+    position: sticky;
+    border-radius: 10px;
+    top: 0;
+    height: 19.7em;
+    margin-top:17px;
+    right:0;
     float:right;
     width: 30%;
-    background-color: rgba(68, 109, 107, 0.9);
-} */
+
+    text-align: center;
+    background-color: rgba(159, 179, 82, 0.7);
+}
+
+.right-fix h6{
+    margin-top: 20px;
+    background-color: rgba(86, 97, 44, 0.7);
+    font-size: 0.9rem;
+    color: white;
+    text-transform: uppercase;
+}
+
+.added{
+    left: 5%;
+    top: 70px;
+    border: 2px solid rgba(86, 97, 44, 0.7);
+    position: absolute;
+    height: 55%;
+    width: 90%;
+}
+
+.results{
+    position:absolute;
+    bottom: 15px;
+    background-color: rgba(86, 97, 44, 0.7);
+    width: 100%;
+    color: white;
+    padding-bottom: 5px;
+}
 
 .order{
+    margin-top: 30px;
     background: url(images/backgr_cook.jpg) no-repeat center;
     background-size: cover;
     position:relative;
     height: 20rem;
-    color: #fff;
     text-align: center;
 }
 
@@ -262,8 +295,10 @@ ul{
 }
 
 .order h2{
-    padding-top: 130px;
+    padding-top: 8%;
+    padding-bottom: 4%;
     font-size: 2rem;
+    color: #fff;
 }
 
 .cook-btn{
@@ -280,6 +315,12 @@ ul{
     cursor: pointer;
     background-color: rgba(58, 65, 31, 0.9);
     box-shadow: 0px 0px 20px 3px rgba(204, 204, 223, 0.4); 
+}
+
+.cook-window{
+    background-color: rgb(92, 120, 121);
+    width: 40%;
+    height: 150px;
 }
 
 .footer-wrap{
@@ -336,3 +377,6 @@ ul{
 .socials img{
     width: 30px;
 }
+
+
+
