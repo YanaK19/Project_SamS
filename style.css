@@ -9,6 +9,7 @@ html{
 body{
     margin: 0;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 3px solid royalblue;
 }
 
 .main{
@@ -133,7 +134,7 @@ body{
 
 .table{
     margin-top: 0;
-    height:100vh;
+    height: 100vh;
     min-height: 600px;
 }
 
@@ -165,26 +166,173 @@ margin: 0;
     color: #fff;
     background: rgb(208, 26, 26, 0.9);
     border-radius: 40px;
+    margin-bottom: 60px;
 }
 
+/* .wrap{
+    width: 100%;
+    height: 100%;
+} */
 
-.ingredients-tags *{
-
-    border: 1px solid red;
-}
-
-.ingredients-tags{
+.left{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     width: 68%;
     float:left;
+    padding-top: 5px;
+   /*  border:2px solid black; */
 }
 
-.ingredients li{
+.ingredients-tag{
+    text-align: center;
+    color:rgb(61, 11, 11);
+    font-size: 0.9rem;
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(243, 230, 113, 0.7);
+    border-radius: 1rem;
+    transition: 0.2s;
+}
+
+.ingredients-tag:hover{
+    border: 2px solid rgba(159, 179, 82, 0.7);
+}
+
+.group-title{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.group-title h4{
+    margin-left:5px;
+    text-transform: uppercase;
+}
+
+ul{
+    padding: 0;
+    margin-top: 0;
+}
+
+.left li{
+    list-style: none;
+    padding: 3px;
+    justify-content: center;
+}
+
+.left li:hover{
+    width: 90%;
+    background-color: rgba(206, 232, 107, 0.7);
+    border: 2px solid rgba(159, 179, 82, 0.7);
+}
+
+/* .right-fix{
+    float:right;
+    width: 30%;
+    background-color: rgba(68, 109, 107, 0.9);
+} */
+
+.order{
+    background: url(images/backgr_cook.jpg) no-repeat center;
+    background-size: cover;
+    position:relative;
+    height: 20rem;
+    color: #fff;
+    text-align: center;
+}
+
+.order-overlay{
+    left: 0;
+    top: 0;
+    width:100%;
+    height:100%;
+    background: rgb(97, 97, 97);
+    opacity: .6;
+    z-index: 0;
+    position: absolute;
+}
+
+.order-content{
+    position: relative;
+    z-index: 2;
+}
+
+.order h2{
+    padding-top: 130px;
+    font-size: 2rem;
+}
+
+.cook-btn{
+    border: none;
+    background-color:  rgb(208, 26, 26, 0.9);
+    color: #fff;
+    width: 12rem;
+    height: 2rem;
+    font-size: 1.4rem;
+    border-radius: 100px;
+}
+
+.cook-btn:hover{
+    cursor: pointer;
+    background-color: rgba(58, 65, 31, 0.9);
+    box-shadow: 0px 0px 20px 3px rgba(204, 204, 223, 0.4); 
+}
+
+.footer-wrap{
+    display: flex;
+    justify-content: flex-end;
+    margin-top:10px;
+}
+
+.footer-menu{
+    width: 40%;
+}
+
+.footer-menu ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-menu li{
     list-style: none;
 }
 
-.sidebar{
-    border:1px solid green;
-    float:right;
-    width: 30%;
-    margin-right: 0;
+.footer-link{
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: rgb(208, 26, 26, 0.9);
+    font-weight: 500;
+}
+
+.line{
+   /*  display:block; */
+    width: 90%;
+    height: 2px;
+    background-color: rgb(208, 26, 26, 0.5);
+    margin: 1rem auto;
+
+}
+
+.bottom{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    font-size: 0.7rem;
+    color: rgb(208, 26, 26, 0.7);
+    margin-bottom: 10px;
+}
+
+.socials{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.socials img{
+    width: 30px;
 }
