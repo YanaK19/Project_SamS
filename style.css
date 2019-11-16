@@ -263,6 +263,19 @@ ul{
     overflow: auto;
 }
 
+.right-fix .added p{
+    background-color: rgba(243, 230, 113, 0.9);
+    width: 98%;
+    margin: 4px auto;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    align-items: right;
+}
+
+.right-fix .added #g{
+    width: 30px;
+}
+
 .results{
     position:absolute;
     bottom: 15px;
@@ -312,6 +325,7 @@ ul{
     height: 2rem;
     font-size: 1.4rem;
     border-radius: 100px;
+    outline:none;
 }
 
 .cook-btn:hover{
@@ -390,10 +404,10 @@ ul{
     z-index:150;
     margin: 0 auto;
 
-/*     display: none; */
+    display: none;
 }
 
-.content-window{
+.cook-window .content-window{
     display:flex;
     justify-content: space-around;
     height:80%;
@@ -416,7 +430,7 @@ ul{
 }
 
 .cook-window .close:hover{
-    box-shadow: 0px 0px 10px 1px rgba(150, 30, 30, 0.4);
+    box-shadow: 0px 0px 10px 1px rgba(30, 150, 60, 0.4);
 }
 
 .cook-window .title{
@@ -457,7 +471,7 @@ ul{
     bottom: 0;
     z-index:100;
 
-/*     display: none; */
+    display: none;
 }
 
 
