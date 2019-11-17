@@ -11,6 +11,32 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: rgba(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgba(83, 48, 48, 0.3);
+    border-radius: 15px;
+    border: 1.5px solid rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgba(83, 48, 48, 0.8);
+}
+
+.added::-webkit-scrollbar-thumb{
+    background-color: rgba(86, 97, 44, 0.7);
+}
+
+.added::-webkit-scrollbar{
+    width: 8px;
+}
+
 .main{
     height:100vh;
     min-height: 600px;
@@ -38,7 +64,7 @@ body{
 }
 
 .header{
-    margin-top: 3%;
+    margin-top: 5%;
     height:10vh;
     width:90%;
     position:relative;
@@ -49,7 +75,7 @@ body{
 }
 
 .menu{
-    width: 30%;
+    width: 460px;
 }
 
 .menu ul{
@@ -62,8 +88,13 @@ body{
     border: 2px solid #fff;
     padding:10px;
     border-radius: 100px;
-    width: 60px;
+    width: 100px;
     text-align: center;
+}
+
+.menu li:hover{
+    background-color: rgba(255, 78, 78, 0.6);
+    border: 2px solid rgba(145, 18, 18, 0.6);
 }
 
 .logo{
@@ -256,24 +287,41 @@ ul{
 .right-fix .added{
     left: 5%;
     top: 70px;
-    border: 2px solid rgba(86, 97, 44, 0.7);
+/*     border: 2px solid rgba(86, 97, 44, 0.7); */
     position: absolute;
     height: 55%;
-    width: 90%;
+    width: 92%;
     overflow: auto;
 }
 
 .right-fix .added p{
+    border-radius: 10px;
     background-color: rgba(243, 230, 113, 0.9);
     width: 98%;
     margin: 4px auto;
     padding-top: 2px;
     padding-bottom: 2px;
     align-items: right;
+    position: relative;
+    transition: .2s linear;
 }
 
 .right-fix .added #g{
     width: 30px;
+}
+
+.remove-product{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-size: 17px 17px;
+    background-image: url('images/close_red.png');
+    right: 1%;
+    top: 1%;
+}
+
+.remove-product:hover{
+    background-image: url('images/close.png');
 }
 
 .results{
