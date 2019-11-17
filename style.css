@@ -243,9 +243,20 @@ margin: 0;
     text-transform: uppercase;
 }
 
-ul{
+.left ul{
     padding: 0;
     margin-top: 0;
+    height: 100px;
+    width: 98%;
+    overflow: auto;
+    transition: .4s linear;
+}
+
+.left ul:hover{
+    padding: 0;
+    margin-top: 0;
+    height: 200px;
+    overflow: auto;
 }
 
 .left li{
@@ -309,6 +320,18 @@ ul{
 .right-fix .added #g{
     width: 30px;
 }
+
+.right-fix .tooltip {
+    position: fixed;
+    padding: 10px 20px;
+    border: 1px solid #b3c9ce;
+    border-radius: 4px;
+    text-align: center;
+    font: italic 14px/1.3 sans-serif;
+    color: #333;
+    background: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+  }
 
 .remove-product{
     position: absolute;

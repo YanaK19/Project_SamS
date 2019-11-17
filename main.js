@@ -31,7 +31,7 @@ ingredients.forEach(element => element.addEventListener('click', function(){
     let product = document.createElement('p');
     product.classList.add(element.textContent)
     product.innerHTML = `<b>${element.textContent}</b><br>  
-                        gr: <input id = "g">
+                        gr: <input id = "g" data-tooltip="1pc">
                         kcal: <output name = "kc">0
                         $<output name = "pr">0
                         <div class="remove-product"></div>`;
@@ -46,4 +46,42 @@ productList.addEventListener('click', function(event){
         return;
     event.target.closest('p').remove(); 
 });
+
+//подсказка: сколько грамм в штуке "1 apple-165pc"
+let tooltipElem;
+
+document.onmouseover = function(event) {
+  let target = event.target;
+
+  let tooltipHtml = target.dataset.tooltip;
+  if (!tooltipHtml) return;
+
+  tooltipElem = document.createElement('div');
+  tooltipElem.className = 'tooltip';
+  tooltipElem.innerHTML = tooltipHtml;
+  productList.append(tooltipElem);
+
+  let coords = target.getBoundingClientRect();
+
+  let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+  if (left < 0) left = 0;
+
+  let top = coords.top - tooltipElem.offsetHeight - 5;
+  if (top < 0) { 
+    top = coords.top + target.offsetHeight + 5;
+  }
+
+  tooltipElem.style.left = left + 'px';
+  tooltipElem.style.top = top + 'px';
+};
+
+document.onmouseout = function(e) {
+  if (tooltipElem) {
+    tooltipElem.remove();
+    tooltipElem = null;
+  }
+
+};
+
+
 
