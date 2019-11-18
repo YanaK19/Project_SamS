@@ -74,23 +74,7 @@ function fillUl(arr){
 
 fillUl(ingredientsArr);
 
-//окно при нажатии на кнопку COOK
-let cookButton = document.querySelector('.cook-btn');
-let cookWindow = document.querySelector('.cook-window');
-let filter = document.querySelector('.filter');
-let closeButton = document.querySelector('.close');
 
-cookButton.addEventListener('click', function(){
-    //показать в окне весь заказ
-
-    cookWindow.style.display = 'block';
-    filter.style.display = 'block';
-});
-
-closeButton.addEventListener('click', function(){
-    cookWindow.style.display = 'none';
-    filter.style.display = 'none';
-});
 
 //добавление продуктов в поле added products
 let ingredients = document.querySelectorAll('.left li');
@@ -169,6 +153,7 @@ document.onmouseout = function(e) {
   }
 };
 
+let resListProduct = ``;
 //при нажатии на кнопку count подсчитать все поля
 let countButton = document.querySelector('.count-btn');
 countButton.addEventListener('click', function(){
@@ -180,21 +165,45 @@ countButton.addEventListener('click', function(){
   pList.forEach(function(element){
     let object = ingredientsArr.find(curr => curr.name == element.firstElementChild.innerHTML)
     let inputField = document.querySelector(`.`+ element.className + ` input`);
-    alert(Number(inputField.value));
+
 
     resGr += Number(inputField.value);
     resKcal += Number(inputField.value) * object.kcal / 100;
     resPrice += Number(inputField.value) * object.price100gr / 100;
   });
 
-  resGr = resGr.toFixed(2);
+  resGr = resGr;
   resKcal = resKcal.toFixed(2);
   resPrice = resPrice.toFixed(2);
 
   document.querySelector('.results #a').innerHTML = String(resGr);
   document.querySelector('.results #b').innerHTML = String(resKcal);
   document.querySelector('.results #c').innerHTML =String(resPrice);
-  //continue...
 });
 
+//окно при нажатии на кнопку COOK
+let cookButton = document.querySelector('.cook-btn');
+let cookWindow = document.querySelector('.cook-window');
+let filter = document.querySelector('.filter');
+let closeButton = document.querySelector('.close');
+let orderField = document.querySelector('.order .result-salad-ingredients');
 
+cookButton.addEventListener('click', function(){
+    //показать в окне весь заказ
+    let pList = document.querySelectorAll('.right-fix p');
+    let str = ``;
+
+    pList.forEach(function(element){
+        str += `${element.firstElementChild.innerHTML}<br>`;
+       });
+      
+    orderField.innerHTML = str;
+    
+    cookWindow.style.display = 'block';
+    filter.style.display = 'block';
+});
+
+closeButton.addEventListener('click', function(){
+    cookWindow.style.display = 'none';
+    filter.style.display = 'none';
+});
