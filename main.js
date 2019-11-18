@@ -116,14 +116,12 @@ ingredients.forEach(element => element.addEventListener('click', function(){
       contentProduct += `data-tooltip="1pc-${elOfArr.pc}gr"`;
 
     contentProduct =  `<b>${element.textContent}</b><br>  
-    gr: <input id = "g" `+ contentProduct + `>
-    kcal: <output name = "kc">0
-    $<output name = "pr">0
-    <div class="remove-product"></div>`
+    gr: <input id = "${element.textContent}" `+ contentProduct + `>
+    <div class="remove-product"></div>` 
 
     product.innerHTML = contentProduct;
     productList.append(product);
-    
+
     productList.scrollBy(0, product.offsetTop);
 }));
 
@@ -133,6 +131,8 @@ productList.addEventListener('click', function(event){
         return;
     event.target.closest('p').remove(); 
 });
+
+
 
 //подсказка: сколько грамм в штуке "1 apple-165pc"
 let tooltipElem;
@@ -167,8 +167,15 @@ document.onmouseout = function(e) {
     tooltipElem.remove();
     tooltipElem = null;
   }
-
 };
 
+//при нажатии на кнопку count подсчитать все поля
+let countButton = document.querySelector('.count-btn');
+countButton.addEventListener('click', function(){
+  let pList = document.querySelectorAll('.right-fix p');
+  alert(pList[1].className);
+
+  //continue...
+});
 
 
