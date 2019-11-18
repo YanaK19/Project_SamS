@@ -329,7 +329,6 @@ margin: 0;
 /*     width: 12rem;
     height: 2rem; */
     font-size: 1.2rem;
-    padding: 5px 10px;
     border-radius: 100px;
     outline:none;
 }
@@ -371,7 +370,7 @@ margin: 0;
     background-color: rgba(86, 97, 44, 0.7);
     width: 100%;
     color: white;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .order{
@@ -502,7 +501,6 @@ margin: 0;
     height:80%;
     flex-wrap: wrap;
     align-items: center;
-    border: 2px solid darkcyan;
 }
 
 .cook-window .close{
@@ -529,27 +527,42 @@ margin: 0;
 }
 
 .content-window .anim{
-    border: 2px solid darkcyan;
     width: 25%;
 }
 
 .content-window .anim img{
     width: 85%;
-    border: 2px solid darkcyan;
 }
 
 .content-window .info{
-    height: 95%;
-    border: 2px solid darkcyan;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
     width: 60%;
+    align-items: center;
+}
+
+.content-window .info h2{
+    color: rgb(61, 11, 11);
+    height: 10%;
+    font-size: 1rem;
+    padding: 5px 5px;
+    margin-top: 20px;
 }
 
 .content-window .result-salad-ingredients{
-    margin-top: 10px;
-    height: 95%;
-    border: 2px solid darkcyan;
+    margin-bottom: 10px;
+    width: 90%;
     overflow: auto;
 }
+
+.content-window .windowRes{
+    color: rgb(175, 31, 31);
+    width: 90%;
+    text-align: right;
+    padding: 10px;
+/*     background-color: darksalmon; */
+} 
 
 .filter{
     background-color: rgba(0,0,0,0.55);

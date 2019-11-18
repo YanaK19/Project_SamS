@@ -186,19 +186,27 @@ let cookButton = document.querySelector('.cook-btn');
 let cookWindow = document.querySelector('.cook-window');
 let filter = document.querySelector('.filter');
 let closeButton = document.querySelector('.close');
-let orderField = document.querySelector('.order .result-salad-ingredients');
+let orderField = document.querySelector('.order .info');
 
 cookButton.addEventListener('click', function(){
     //показать в окне весь заказ
     let pList = document.querySelectorAll('.right-fix p');
-    let str = ``;
+    let strIngredients = ``;
 
     pList.forEach(function(element){
-        str += `${element.firstElementChild.innerHTML}<br>`;
+      strIngredients += `${element.firstElementChild.innerHTML}<br>`;
        });
       
-    orderField.innerHTML = str;
-    
+    document.querySelector('.result-salad-ingredients').innerHTML = strIngredients;
+
+    let strResults = `
+            ${document.querySelector('.results #a').innerHTML} gr<br>
+            ${document.querySelector('.results #b').innerHTML} kcal<br>
+            $${document.querySelector('.results #c').innerHTML}<br>
+           `
+
+    document.querySelector('.windowRes').innerHTML = strResults;
+
     cookWindow.style.display = 'block';
     filter.style.display = 'block';
 });
