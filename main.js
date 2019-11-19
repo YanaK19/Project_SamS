@@ -80,6 +80,26 @@ fillUl(ingredientsArr);
 let ingredients = document.querySelectorAll('.left li');
 let productList = document.querySelector('.right-fix .added');
 
+function addProduct(prodName){
+      //найти объект с таким именем в БД
+      let elOfArr = ingredientsArr.find(el => el.name == prodName);
+      let product = document.createElement('p');
+      product.classList.add(prodName);
+      let contentProduct = ``;
+      //если продукт поштучный, добавить подсказку
+      if(elOfArr.hasOwnProperty('pc'))
+        contentProduct += `data-tooltip="1pc-${elOfArr.pc}gr"`;
+  
+      contentProduct =  `<b>${prodName}</b><br>  
+      gr: <input id = "${prodName}" `+ contentProduct + `>
+      <div class="remove-product"></div>` 
+  
+      product.innerHTML = contentProduct;
+      productList.append(product);
+  
+      productList.scrollBy(0, product.offsetTop);
+}
+
 ingredients.forEach(element => element.addEventListener('click', function(){
     //не добавлять, если уже в списке
     let exist = document.querySelector('.added .'+ element.textContent)
@@ -90,23 +110,7 @@ ingredients.forEach(element => element.addEventListener('click', function(){
         return;
     }
 
-    //найти объект с таким именем в БД
-    let elOfArr = ingredientsArr.find(el => el.name == element.textContent);
-    let product = document.createElement('p');
-    product.classList.add(element.textContent);
-    let contentProduct = ``;
-    //если продукт поштучный, добавить подсказку
-    if(elOfArr.hasOwnProperty('pc'))
-      contentProduct += `data-tooltip="1pc-${elOfArr.pc}gr"`;
-
-    contentProduct =  `<b>${element.textContent}</b><br>  
-    gr: <input id = "${element.textContent}" `+ contentProduct + `>
-    <div class="remove-product"></div>` 
-
-    product.innerHTML = contentProduct;
-    productList.append(product);
-
-    productList.scrollBy(0, product.offsetTop);
+    addProduct(element.textContent);
 }));
 
 //при нажатии на крестик удалить из списка
@@ -115,8 +119,6 @@ productList.addEventListener('click', function(event){
         return;
     event.target.closest('p').remove(); 
 });
-
-
 
 //подсказка: сколько грамм в штуке "1 apple-165pc"
 let tooltipElem;
@@ -154,9 +156,9 @@ document.onmouseout = function(e) {
 };
 
 let resListProduct = ``;
-//при нажатии на кнопку count подсчитать все поля
 let countButton = document.querySelector('.count-btn');
-countButton.addEventListener('click', function(){
+
+function countRes(){
   let pList = document.querySelectorAll('.right-fix p');
   let resGr=0;
   let resKcal=0;
@@ -179,7 +181,10 @@ countButton.addEventListener('click', function(){
   document.querySelector('.results #a').innerHTML = String(resGr);
   document.querySelector('.results #b').innerHTML = String(resKcal);
   document.querySelector('.results #c').innerHTML =String(resPrice);
-});
+}
+
+//при нажатии на кнопку count подсчитать все поля
+countButton.addEventListener('click', countRes);
 
 //окно при нажатии на кнопку COOK
 let cookButton = document.querySelector('.cook-btn');
@@ -192,26 +197,68 @@ cookButton.addEventListener('click', function(){
     //показать в окне весь заказ
     let pList = document.querySelectorAll('.right-fix p');
     let strIngredients = ``;
+    let localName = [];
+    let localInput = [];
+    let localResults = [];
+
+    countRes();
 
     pList.forEach(function(element){
       strIngredients += `${element.firstElementChild.innerHTML}<br>`;
-       });
-      
+      localName.push(element.firstElementChild.innerHTML);
+
+      let inputVal = document.querySelector(`.`+ element.className + ` input`).value;
+      localInput.push(inputVal);
+    });
+
     document.querySelector('.result-salad-ingredients').innerHTML = strIngredients;
 
+    let a = document.querySelector('.results #a').innerHTML;
+    let b = document.querySelector('.results #b').innerHTML;
+    let c = document.querySelector('.results #c').innerHTML;
+
     let strResults = `
-            ${document.querySelector('.results #a').innerHTML} gr<br>
-            ${document.querySelector('.results #b').innerHTML} kcal<br>
-            $${document.querySelector('.results #c').innerHTML}<br>
+            ${a} gr<br>
+            ${b} kcal<br>
+            $${c}<br>
            `
+    localResults.push(a, b, c);
 
-    document.querySelector('.windowRes').innerHTML = strResults;
+    document.querySelector('.windowRes').innerHTML = strResults;    
 
+    //показать окно
     cookWindow.style.display = 'block';
     filter.style.display = 'block';
+
+    localStorage.setItem("lsName", JSON.stringify(localName));
+    localStorage.setItem("lsInput", JSON.stringify(localInput));
+    localStorage.setItem("lsResults", JSON.stringify(localResults));
 });
 
 closeButton.addEventListener('click', function(){
     cookWindow.style.display = 'none';
     filter.style.display = 'none';
 });
+
+//показать последний заказ
+let lastButton = document.querySelector('.last-btn');
+lastButton.addEventListener('click', function(){
+  document.querySelector('.added').innerHTML = '';
+
+  let namesFromLS = JSON.parse(localStorage.getItem("lsName"));
+  let inputsFromLS = JSON.parse(localStorage.getItem("lsInput"));
+  let resultsFromLS = JSON.parse(localStorage.getItem("lsResults"));
+
+  namesFromLS.forEach(name =>  addProduct(name));
+
+  let inList = document.querySelectorAll('.right-fix input');
+  let i = 0;
+  inList.forEach(el => {el.value = inputsFromLS[i]; i++;})
+
+  document.querySelector('.results #a').innerHTML = resultsFromLS[0];
+  document.querySelector('.results #b').innerHTML = resultsFromLS[1];
+  document.querySelector('.results #c').innerHTML = resultsFromLS[2];
+});
+
+
+
