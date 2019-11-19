@@ -1,7 +1,6 @@
 
 let ingredientsArr = [
   {
-    id: 1,
     group: "protein",
     name: "chicken",
     price100gr: 0.7,
@@ -9,7 +8,6 @@ let ingredientsArr = [
     pc: 1500
   },
   {
-    id: 2,
     group: "protein",
     name: "eggs",
     price100gr: 0.3,
@@ -17,28 +15,18 @@ let ingredientsArr = [
     pc: 55
   },
   {
-    id: 3,
     group: "protein",
     name: "fish",
     price100gr: 0.8,
     kcal: 140
   },
   {
-    id: 4,
-    group: "protein",
-    name: "shrimps",
-    price100gr: 1.2,
-    kcal: 95,
-  },
-  {
-    id: 5,
     group: "greenVeg",
     name: "lettuce",
     price100gr: 0.2,
-    kcal: 14,
+    kcal: 14
   },
   {
-    id: 6,
     group: "greenVeg",
     name: "peas",
     price100gr: 0.5,
@@ -46,17 +34,65 @@ let ingredientsArr = [
     pc:135
   },
   {
-    id: 7,
     group: "greenVeg",
     name: "broccoli",
     price100gr: 0.5,
     kcal: 28
+  },
+  {
+    group: "crispy",
+    name: "cucumber",
+    price100gr: 0.4,
+    kcal: 15,
+    pc:100
+  },
+  {
+    group: "crispy",
+    name: "paper",
+    price100gr: 0.5,
+    kcal: 27,
+    pc:40
+  },
+  {
+    group: "crispy",
+    name: "carrot",
+    price100gr: 0.3,
+    kcal: 32,
+    pc:75
+  },
+  {
+    group: "sweet",
+    name: "raisins",
+    price100gr: 1.2,
+    kcal: 264
+  },
+  {
+    group: "sweet",
+    name: "apple",
+    price100gr: 0.2,
+    kcal: 165
+  },
+  {
+    group: "seasoning",
+    name: "garlic",
+    price100gr: 0.9,
+    kcal: 143
+  },
+  {
+    group: "gravy",
+    name: "raisins",
+    price100gr: 1.0,
+    kcal: 899
   },
 ];
 
 //заполнение ul
 let proteinList = document.querySelector('.left .protein');
 let greenVegList = document.querySelector('.left .greenVeg');
+let crispyList = document.querySelector('.left .crispy');
+let sweetList = document.querySelector('.left .sweet');
+let seasoningList = document.querySelector('.left .seasoning');
+let gravyList = document.querySelector('.left .gravy');
 function fillUl(arr){
   arr.forEach(function(item){
     let liElement = document.createElement('li');
@@ -68,13 +104,23 @@ function fillUl(arr){
       case 'greenVeg': 
         greenVegList.append(liElement);
         break;
+      case 'crispy': 
+        crispyList.append(liElement);
+        break;
+      case 'sweet': 
+        sweetList.append(liElement);
+        break;
+      case 'seasoning': 
+        seasoningList.append(liElement);
+        break;
+      case 'gravy': 
+        gravyList.append(liElement);
+        break;
     }
   });
 }
 
 fillUl(ingredientsArr);
-
-
 
 //добавление продуктов в поле added products
 let ingredients = document.querySelectorAll('.left li');
