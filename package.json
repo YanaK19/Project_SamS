@@ -19,7 +19,7 @@
   "homepage": "https://github.com/YanaK19/Project_SamS#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mocha": "^6.2.2",
+    "mocha": "^6.2.3",
     "mongoose": "^5.7.11"
   }
 }
